@@ -3,7 +3,7 @@
 - 将短信内容转发到webhook接口
 
 ### 反馈
-- 交流群 ` 1030563382 `
+- QQ群 ` 1030563382 `
 
 ### 成品购买
 - https://www.goofish.com/personal?userId=2792694676
