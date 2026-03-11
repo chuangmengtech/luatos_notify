@@ -37,6 +37,10 @@ return {
                     url    = 'http://192.168.1.1/obj',
                     host   = 'api.iot.test.xyz',
                     auth   = 'xxx'
+                },
+                dingtalk = {
+                    enable = 0,
+                    url    = 'https://oapi.dingtalk.com/robot/send?access_token=xxx'
                 }
             }
         },

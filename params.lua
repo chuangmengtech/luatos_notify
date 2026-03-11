@@ -54,6 +54,19 @@ function params.TelegramBot(type, from, num, content)
     }, json.encode({chat_id = cfg.id, text = text[type], parse_mode = 'MarkdownV2'})
 end
 
+-- 钉钉
+function params.dingtalk(type, from, num, content)
+    local text = {
+        call = string.format('%s 致电 %s', from, num),
+        sms  = string.format('%s 发来短信：%s\n收信方：%s', from, content, num),
+        msg  = content
+    }
+    if not text[type] then return end
+    return 'POST', chl.dingtalk.url, {
+        ['Content-Type'] = 'application/json; charset=utf-8'
+    }, json.encode({msgtype = 'text', text = {content = text[type]}})
+end
+
 -- 私人接口
 function params.huaiot(type, from, num, content)
     local    cfg = chl.huaiot
@@ -77,5 +90,6 @@ return params
     微信，    https://developer.work.weixin.qq.com/document/path/91770
     bark，    https://bark.day.app/#/tutorial
     Telegram，https://core.telegram.org/bots/api#sendmessage
+    钉钉，    https://open.dingtalk.com/document/robots/custom-robot-access
 
 --]]
